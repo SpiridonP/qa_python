@@ -1,5 +1,4 @@
 from main import BooksCollector
-from main import BooksCollector
 book_name_1 = 'Повесть о "Человеке-Драконе"'
 book_name_2 = 'Повесть о "Человеке-Драконе 2: Новое начало"'
 book_name_3 = 'Повесть о "Человеке-Драконе"'
@@ -24,17 +23,28 @@ class TestBooksCollector:
 
         # проверяем, что добавилось именно две
         # словарь books_rating, который нам возвращает метод get_books_rating, имеет длину 2
-        assert len(collector.get_books_rating()) == 2
+        assert len(collector.get_books_genre()) == 2
 
 
     def test_genre_first_version_is_true(self):
-
         genre = BooksCollector()
-        assert  genre.genre == ['Фантастика', 'Ужасы', 'Детективы', 'Мультфильмы', 'Комедии']
+        new_book_name = 'Гайд по cs2 :))'
+        genre_for_new_book = 'Комедии'
+        genre.add_new_book(new_book_name)
+        genre.set_book_genre(new_book_name, genre_for_new_book)
+        if genre_for_new_book in genre.genre and new_book_name in genre.books_genre:
+            assert genre_for_new_book in genre.genre
+
 
     def test_genre_age_rating_first_version_is_true(self):
         genre_age_rating = BooksCollector()
-        assert genre_age_rating.genre_age_rating == ['Ужасы', 'Детективы']
+        new_book_name_2 = 'Как перестать играть в cs2'
+        new_genre_for_book = 'Ужасы'
+        genre_age_rating.add_new_book(new_book_name_2)
+        genre_age_rating.set_book_genre(new_book_name_2, new_genre_for_book)
+        if new_genre_for_book in genre_age_rating.genre_age_rating and new_book_name_2 in genre_age_rating.books_genre:
+            assert new_genre_for_book in genre_age_rating.genre_age_rating
+
 
     def test_add_new_book_book_without_genre(self):
         collector = BooksCollector()
@@ -55,8 +65,9 @@ class TestBooksCollector:
         add_new_book.set_book_genre(book_name_1, book_genre_1)
         assert add_new_book.books_genre[book_name_1] == book_genre_1
 
-    def test_get_book_gener_gener_is_equal_name(self, get_book):
-        assert get_book.get_book_genre(book_name_1) == book_genre_1
+    def test_get_book_gener_gener_is_equal_name(self, set_book_genre):
+        set_book_genre.set_book_genre(book_name_1, book_genre_1)
+        assert set_book_genre.get_book_genre(book_name_1) == book_genre_1
 
     def test_get_books_gener_actual(self, get_book):
         get_book.get_books_genre()

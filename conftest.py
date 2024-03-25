@@ -37,3 +37,9 @@ def specific():
     collector = BooksCollector()
     collector.add_new_book(book_name_4)
     collector.set_book_genre(book_name_1, book_genre_2)
+
+@pytest.fixture
+def set_book_genre():
+    collector = BooksCollector()
+    collector.add_new_book(book_name_1)
+    return collector
