@@ -43,3 +43,9 @@ def set_book_genre():
     collector = BooksCollector()
     collector.add_new_book(book_name_1)
     return collector
+
+@pytest.fixture
+def get_book_gener_actual():
+    collector = BooksCollector()
+    collector.add_new_book(book_name_1)
+    return collector

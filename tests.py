@@ -1,4 +1,5 @@
 from main import BooksCollector
+from main import BooksCollector
 book_name_1 = 'Повесть о "Человеке-Драконе"'
 book_name_2 = 'Повесть о "Человеке-Драконе 2: Новое начало"'
 book_name_3 = 'Повесть о "Человеке-Драконе"'
@@ -26,6 +27,7 @@ class TestBooksCollector:
         assert len(collector.get_books_genre()) == 2
 
 
+
     def test_add_new_book_book_without_genre(self):
         collector = BooksCollector()
         collector.add_new_book(book_name_1)
@@ -45,9 +47,9 @@ class TestBooksCollector:
         add_new_book.set_book_genre(book_name_1, book_genre_1)
         assert add_new_book.books_genre[book_name_1] == book_genre_1
 
-    def test_get_book_gener_gener_is_equal_name(self, set_book_genre):
-        set_book_genre.set_book_genre(book_name_1, book_genre_1)
-        assert set_book_genre.get_book_genre(book_name_1) == book_genre_1
+    def test_get_book_gener_gener_is_equal_name(self, get_book_gener_actual):
+        get_book_gener_actual.set_book_genre(book_name_1, book_genre_1)
+        assert get_book_gener_actual.get_book_genre(book_name_1) == book_genre_1
 
     def test_get_books_gener_actual(self, get_book):
         get_book.get_books_genre()
