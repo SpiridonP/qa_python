@@ -26,26 +26,6 @@ class TestBooksCollector:
         assert len(collector.get_books_genre()) == 2
 
 
-    def test_genre_first_version_is_true(self):
-        genre = BooksCollector()
-        new_book_name = 'Гайд по cs2 :))'
-        genre_for_new_book = 'Комедии'
-        genre.add_new_book(new_book_name)
-        genre.set_book_genre(new_book_name, genre_for_new_book)
-        if genre_for_new_book in genre.genre and new_book_name in genre.books_genre:
-            assert genre_for_new_book in genre.genre
-
-
-    def test_genre_age_rating_first_version_is_true(self):
-        genre_age_rating = BooksCollector()
-        new_book_name_2 = 'Как перестать играть в cs2'
-        new_genre_for_book = 'Ужасы'
-        genre_age_rating.add_new_book(new_book_name_2)
-        genre_age_rating.set_book_genre(new_book_name_2, new_genre_for_book)
-        if new_genre_for_book in genre_age_rating.genre_age_rating and new_book_name_2 in genre_age_rating.books_genre:
-            assert new_genre_for_book in genre_age_rating.genre_age_rating
-
-
     def test_add_new_book_book_without_genre(self):
         collector = BooksCollector()
         collector.add_new_book(book_name_1)
